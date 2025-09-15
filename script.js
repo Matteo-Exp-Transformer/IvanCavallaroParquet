@@ -1,0 +1,837 @@
+// ===== GLOBAL VARIABLES =====
+let currentStep = 1;
+let wizardData = {};
+let currentImageIndex = 0;
+let lightboxImages = [];
+
+// ===== TRANSLATIONS =====
+const translations = {
+    it: {
+        hero_title: "Qualità ed esperienza nel parquet in Italia e in Grecia",
+        hero_subtitle: "Oltre 20 anni di esperienza nella posa e nel restauro di parquet di pregio",
+        whatsapp_btn: "WhatsApp",
+        email_btn: "Email",
+        wizard_btn: "Trova il tuo parquet",
+        about_title: "Chi Siamo",
+        about_text1: "Con oltre 20 anni di esperienza nel settore del parquet, Ivan Cavallaro ha costruito una reputazione di eccellenza e affidabilità. Specializzato nella posa e nel restauro di parquet di pregio, lavora con clienti residenziali e commerciali in Italia e in Grecia.",
+        about_text2: "La nostra filosofia si basa sulla qualità artigianale, l'attenzione ai dettagli e l'uso di materiali selezionati per garantire risultati duraturi nel tempo.",
+        collaborations_title: "Collaborazioni di prestigio",
+        download_cv: "Scarica CV in PDF",
+        projects_title: "Esperienze e collaborazioni",
+        project1_name: "Residenza privata - Milano",
+        project1_desc: "Pavimentazione in rovere massello con finitura a olio naturale",
+        project2_name: "Hotel di lusso - Atene",
+        project2_desc: "Parquet prefinito per 50 camere con design contemporaneo",
+        project3_name: "Villa sul lago di Como",
+        project3_desc: "Restauro parquet storico con elementi artistici intarsiati",
+        project4_name: "Appartamento - Roma",
+        project4_desc: "Posa parquet laminato ad alta resistenza per famiglia con bambini",
+        project5_name: "Terrazza - Isola di Mykonos",
+        project5_desc: "Parquet per esterni in teak con trattamento antiscivolo",
+        project6_name: "Showroom - Torino",
+        project6_desc: "Pavimentazione continua in noce americano con finitura opaca",
+        products_title: "Le nostre tipologie di parquet",
+        product_massello: "Massello",
+        product_massello_desc: "Parquet tradizionale in legno massiccio, spessore superiore a 10mm. Durata illimitata con possibilità di numerose carteggiature.",
+        product_prefinito: "Prefinito",
+        product_prefinito_desc: "Pavimento multistrato con strato superiore in legno nobile. Facile da posare, stabile e resistente alle variazioni climatiche.",
+        product_laminato: "Laminato",
+        product_laminato_desc: "Soluzione economica con effetto legno, resistente a graffi e urti. Ideale per ambienti con alto traffico e famiglie con bambini.",
+        product_artistico: "Artistico",
+        product_artistico_desc: "Creazioni su misura con disegni personalizzati, intarsi e composizioni geometriche. Per interni di prestigio e design esclusivo.",
+        product_esterni: "Esterni",
+        product_esterni_desc: "Legni tropicali e trattamenti specifici per resistere agli agenti atmosferici. Per terrazze, giardini d'inverno e piscine.",
+        contact_whatsapp: "Contattaci via WhatsApp",
+        wizard_title: "Trova il parquet perfetto per te",
+        wizard_subtitle: "Rispondi a poche domande e ti consiglieremo la soluzione ideale",
+        step1_title: "Che tipo di ambiente vuoi pavimentare?",
+        option_residenziale: "Residenziale",
+        option_commerciale: "Commerciale",
+        option_esterno: "Esterno",
+        step2_title: "Qual è il livello di traffico dell'ambiente?",
+        option_basso: "Basso (camera da letto)",
+        option_medio: "Medio (soggiorno)",
+        option_alto: "Alto (ufficio/negozio)",
+        step3_title: "Qual è il tuo budget per m²?",
+        option_economico: "Economico (€20-40/m²)",
+        option_medio_prezzo: "Medio (€40-80/m²)",
+        option_premium: "Premium (€80+/m²)",
+        step4_title: "Che stile preferisci?",
+        option_moderno: "Moderno",
+        option_classico: "Classico",
+        option_rustico: "Rustico",
+        step5_title: "La nostra raccomandazione",
+        why_recommended: "Perché questa scelta?",
+        get_quote: "Richiedi preventivo",
+        restart: "Ricomincia",
+        previous: "Precedente",
+        next: "Successivo",
+        contact_title: "Parliamo del tuo parquet",
+        contact_email_title: "Email",
+        contact_email_desc: "Scrivici per un preventivo personalizzato",
+        contact_whatsapp_title: "WhatsApp",
+        contact_whatsapp_desc: "Contattaci direttamente per una consulenza immediata",
+        contact_social_title: "Social",
+        contact_social_desc: "Seguici per vedere i nostri ultimi lavori",
+        footer_desc: "Qualità ed esperienza nel parquet in Italia e in Grecia",
+        footer_links_title: "Link rapidi",
+        footer_home: "Home",
+        footer_about: "Chi Siamo",
+        footer_projects: "Referenze",
+        footer_products: "Prodotti",
+        footer_wizard: "Wizard",
+        footer_contact: "Contatti",
+        footer_languages_title: "Lingue",
+        footer_rights: "Tutti i diritti riservati."
+    },
+    el: {
+        hero_title: "Ποιότητα και εμπειρία στο παρκέ στην Ιταλία και την Ελλάδα",
+        hero_subtitle: "Πάνω από 20 χρόνια εμπειρίας στην τοποθέτηση και αποκατάσταση πολυτελών παρκέ",
+        whatsapp_btn: "WhatsApp",
+        email_btn: "Email",
+        wizard_btn: "Βρες το παρκέ σου",
+        about_title: "Ποιοι είμαστε",
+        about_text1: "Με πάνω από 20 χρόνια εμπειρίας στον τομέα του παρκέ, ο Ivan Cavallaro έχει χτίσει φήμη αριστείας και αξιοπιστίας. Ειδικεύεται στην τοποθέτηση και αποκατάσταση πολυτελών παρκέ, εργάζεται με κατοικίες και εμπορικά κτίρια στην Ιταλία και την Ελλάδα.",
+        about_text2: "Η φιλοσοφία μας βασίζεται στην τεχνική ποιότητα, την προσοχή στις λεπτομέρειες και τη χρήση επιλεγμένων υλικών για να εγγυηθούμε αποτελέσματα που διαρκούν στο χρόνο.",
+        collaborations_title: "Prestigio συνεργασίες",
+        download_cv: "Κατέβασε το βιογραφικό σε PDF",
+        projects_title: "Εμπειρίες και συνεργασίες",
+        project1_name: "Ιδιωτική κατοικία - Μιλάνο",
+        project1_desc: "Επικάλυψη σε μαζέλα βελανιδιάς με φινίρισμα σε φυσικό λάδι",
+        project2_name: "Πολυτελές ξενοδοχείο - Αθήνα",
+        project2_desc: "Προφινιρισμένο παρκέ για 50 δωμάτια με σύγχρονο σχέδιο",
+        project3_name: "Βίλα στη λίμνη Como",
+        project3_desc: "Αποκατάσταση ιστορικού παρκέ με καλλιτεχνικά κομμένα στοιχεία",
+        project4_name: "Διαμέρισμα - Ρώμη",
+        project4_desc: "Τοποθέτηση υψηλής αντίστασης λάμινατο παρκέ για οικογένεια με παιδιά",
+        project5_name: "Τεράζα - Μύκονος",
+        project5_desc: "Εξωτερικό παρκέ σε τικ με αντιαπολίσθηση επεξεργασία",
+        project6_name: "Showroom - Τορίνο",
+        project6_desc: "Συνεχής επικάλυψη σε αμερικανικό καρυδιά με ματ φινίρισμα",
+        products_title: "Οι τύποι παρκέ μας",
+        product_massello: "Μαζέλα",
+        product_massello_desc: "Παραδοσιακό παρκέ σε μαζικό ξύλο, πάχος άνω των 10mm. Απεριόριστη διάρκεια με δυνατότητα πολλαπλών λείανσης.",
+        product_prefinito: "Προφινιρισμένο",
+        product_prefinito_desc: "Πάτωμα πολυστρωματικό με ανώτερο στρώμα σε ευγενές ξύλο. Εύκολο στην τοποθέτηση, σταθερό και ανθεκτικό στις κλιματικές διακυμάνσεις.",
+        product_laminato: "Λάμινατο",
+        product_laminato_desc: "Οικονομική λύση με ξύλινο αποτέλεσμα, ανθεκτικό σε γρατζουνιές και κτυπήματα. Ιδανικό για περιβάλλοντα με υψηλή κίνηση και οικογένειες με παιδιά.",
+        product_artistico: "Καλλιτεχνικό",
+        product_artistico_desc: "Δημιουργίες κατ' επαγγελματία με εξατομικευμένα σχέδια, κομμένα και γεωμετρικές συνθέσεις. Για εσωτερικούς χώρους prestigio και αποκλειστικό σχέδιο.",
+        product_esterni: "Εξωτερικά",
+        product_esterni_desc: "Τροπικά ξύλα και συγκεκριμένες επεξεργασίες για να αντιστέκονται στους ατμοσφαιρικούς παράγοντες. Για τεράζες, χειμερινούς κήπους και πισίνες.",
+        contact_whatsapp: "Επικοινώνησε μαζί μας μέσω WhatsApp",
+        wizard_title: "Βρες το τέλειο παρκέ για εσένα",
+        wizard_subtitle: "Απάντησε σε λίγες ερωτήσεις και θα σου προτείνουμε την ιδανική λύση",
+        step1_title: "Τι είδος περιβάλλοντος θέλεις να επικαλύψεις;",
+        option_residenziale: "Κατοικία",
+        option_commerciale: "Εμπορικό",
+        option_esterno: "Εξωτερικό",
+        step2_title: "Ποιο είναι το επίπεδο κίνησης του περιβάλλοντος;",
+        option_basso: "Χαμηλό (υπνοδωμάτιο)",
+        option_medio: "Μεσαίο (καθιστικό)",
+        option_alto: "Υψηλό (γραφείο/κατάστημα)",
+        step3_title: "Ποιο είναι το budget σου ανά m²;",
+        option_economico: "Οικονομικό (€20-40/m²)",
+        option_medio_prezzo: "Μεσαίο (€40-80/m²)",
+        option_premium: "Premium (€80+/m²)",
+        step4_title: "Ποιο στυλ προτιμάς;",
+        option_moderno: "Μοντέρνο",
+        option_classico: "Κλασικό",
+        option_rustico: "Αγροτικό",
+        step5_title: "Η σύστασή μας",
+        why_recommended: "Γιατί αυτή η επιλογή;",
+        get_quote: "Ζήτα προσφορά",
+        restart: "Ξαναρχίζω",
+        previous: "Προηγούμενο",
+        next: "Επόμενο",
+        contact_title: "Ας μιλήσουμε για το παρκέ σου",
+        contact_email_title: "Email",
+        contact_email_desc: "Γράψε μας για μια εξατομικευμένη προσφορά",
+        contact_whatsapp_title: "WhatsApp",
+        contact_whatsapp_desc: "Επικοινώνησε μαζί μας απευθείας για άμεση συμβουλή",
+        contact_social_title: "Social",
+        contact_social_desc: "Ακολούθησέ μας για να δεις τις τελευταίες μας εργασίες",
+        footer_desc: "Ποιότητα και εμπειρία στο παρκέ στην Ιταλία και την Ελλάδα",
+        footer_links_title: "Γρήγοροι σύνδεσμοι",
+        footer_home: "Αρχική",
+        footer_about: "Ποιοι είμαστε",
+        footer_projects: "Αναφορές",
+        footer_products: "Προϊόντα",
+        footer_wizard: "Οδηγός",
+        footer_contact: "Επικοινωνία",
+        footer_languages_title: "Γλώσσες",
+        footer_rights: "Όλα τα δικαιώματα διατηρούνται."
+    }
+};
+
+// ===== PRODUCT RECOMMENDATIONS =====
+const productRecommendations = {
+    // Residenziale + Basso + Economico
+    "residenziale-basso-economico-moderno": {
+        product: "Laminato",
+        reason: "Per una camera da letto con budget contenuto, il parquet laminato offre il miglior rapporto qualità-prezzo. È resistente, facile da pulire e disponibile in molti colori moderni."
+    },
+    "residenziale-basso-economico-classico": {
+        product: "Laminato",
+        reason: "Il laminato con finitura classica è perfetto per ambienti residenziali a basso traffico. Offre l'aspetto del legno naturale a un prezzo accessibile."
+    },
+    "residenziale-basso-economico-rustico": {
+        product: "Laminato",
+        reason: "Anche con un budget limitato, puoi ottenere un effetto rustico con il laminato. Molti produttori offrono finiture che imitano perfettamente il legno grezzo."
+    },
+    
+    // Residenziale + Basso + Medio
+    "residenziale-basso-medio-moderno": {
+        product: "Prefinito",
+        reason: "Il parquet prefinito è ideale per una camera da letto. Offre la bellezza del legno naturale con maggiore stabilità rispetto al massello, perfetto per ambienti moderni."
+    },
+    "residenziale-basso-medio-classico": {
+        product: "Prefinito",
+        reason: "Con un budget medio, il prefinito ti permette di avere un parquet di qualità superiore. La finitura classica si integra perfettamente in ambienti tradizionali."
+    },
+    "residenziale-basso-medio-rustico": {
+        product: "Prefinito",
+        reason: "Il prefinito con finitura rustica offre il meglio dei due mondi: l'autenticità del legno e la praticità di manutenzione."
+    },
+    
+    // Residenziale + Basso + Premium
+    "residenziale-basso-premium-moderno": {
+        product: "Massello",
+        reason: "Per una camera da letto di lusso, il parquet massello è la scelta migliore. Durata illimitata e possibilità di carteggiature multiple per mantenere l'aspetto perfetto."
+    },
+    "residenziale-basso-premium-classico": {
+        product: "Massello",
+        reason: "Il massello è la tradizione del parquet. Perfetto per chi cerca autenticità e qualità superiore, garantisce risultati che durano decenni."
+    },
+    "residenziale-basso-premium-rustico": {
+        product: "Artistico",
+        reason: "Con un budget premium, puoi permetterti creazioni artistiche personalizzate. Intarsi e disegni su misura per un ambiente unico e raffinato."
+    },
+    
+    // Residenziale + Medio + Economico
+    "residenziale-medio-economico-moderno": {
+        product: "Laminato",
+        reason: "Per il soggiorno con budget contenuto, il laminato ad alta resistenza è la scelta giusta. Resiste al traffico medio e mantiene l'aspetto perfetto."
+    },
+    "residenziale-medio-economico-classico": {
+        product: "Laminato",
+        reason: "Il laminato classico è perfetto per ambienti familiari. Facile da pulire, resistente ai graffi e disponibile in molte tonalità calde."
+    },
+    "residenziale-medio-economico-rustico": {
+        product: "Laminato",
+        reason: "Anche con un budget limitato, il laminato può offrire un effetto rustico autentico. Ottima soluzione per famiglie attive."
+    },
+    
+    // Residenziale + Medio + Medio
+    "residenziale-medio-medio-moderno": {
+        product: "Prefinito",
+        reason: "Il prefinito è la scelta ideale per il soggiorno. Combina bellezza e praticità, perfetto per ambienti moderni con traffico medio."
+    },
+    "residenziale-medio-medio-classico": {
+        product: "Prefinito",
+        reason: "Il prefinito classico offre il calore del legno naturale con la stabilità necessaria per ambienti di vita quotidiana."
+    },
+    "residenziale-medio-medio-rustico": {
+        product: "Prefinito",
+        reason: "Perfetto per chi ama lo stile rustico ma ha bisogno di praticità. Il prefinito mantiene l'aspetto naturale del legno."
+    },
+    
+    // Residenziale + Medio + Premium
+    "residenziale-medio-premium-moderno": {
+        product: "Massello",
+        reason: "Il massello moderno è la scelta di lusso per il soggiorno. Finiture contemporanee che esaltano la bellezza naturale del legno."
+    },
+    "residenziale-medio-premium-classico": {
+        product: "Massello",
+        reason: "Il massello classico è la tradizione che non tramonta mai. Perfetto per ambienti eleganti e raffinati."
+    },
+    "residenziale-medio-premium-rustico": {
+        product: "Artistico",
+        reason: "Con un budget premium, puoi creare un ambiente unico con parquet artistico. Disegni personalizzati che rendono la casa davvero speciale."
+    },
+    
+    // Commerciale + Alto + Economico
+    "commerciale-alto-economico-moderno": {
+        product: "Laminato",
+        reason: "Per uffici e negozi, il laminato commerciale è la scelta più pratica. Alta resistenza, facile manutenzione e costo contenuto."
+    },
+    "commerciale-alto-economico-classico": {
+        product: "Laminato",
+        reason: "Il laminato classico è perfetto per ambienti professionali che vogliono mantenere un aspetto elegante senza spendere troppo."
+    },
+    "commerciale-alto-economico-rustico": {
+        product: "Laminato",
+        reason: "Anche in ambienti commerciali, il laminato può offrire un look rustico accogliente, perfetto per ristoranti e locali."
+    },
+    
+    // Commerciale + Alto + Medio
+    "commerciale-alto-medio-moderno": {
+        product: "Prefinito",
+        reason: "Il prefinito commerciale offre il perfetto equilibrio tra qualità e prezzo. Resistente al traffico intenso e facile da mantenere."
+    },
+    "commerciale-alto-medio-classico": {
+        product: "Prefinito",
+        reason: "Per ambienti professionali che cercano eleganza, il prefinito classico è la scelta ideale. Resistenza e bellezza unite."
+    },
+    "commerciale-alto-medio-rustico": {
+        product: "Prefinito",
+        reason: "Il prefinito rustico può creare ambienti commerciali accoglienti e distintivi, perfetti per attività che vogliono distinguersi."
+    },
+    
+    // Commerciale + Alto + Premium
+    "commerciale-alto-premium-moderno": {
+        product: "Prefinito",
+        reason: "Per ambienti commerciali di lusso, il prefinito premium offre massima resistenza e bellezza. Perfetto per hotel e uffici esclusivi."
+    },
+    "commerciale-alto-premium-classico": {
+        product: "Massello",
+        reason: "Il massello classico è la scelta di prestigio per ambienti commerciali di alto livello. Eleganza senza tempo e durata garantita."
+    },
+    "commerciale-alto-premium-rustico": {
+        product: "Artistico",
+        reason: "Per ambienti commerciali unici, il parquet artistico crea un'atmosfera distintiva che i clienti ricorderanno."
+    },
+    
+    // Esterno
+    "esterno-basso-economico-moderno": {
+        product: "Esterni",
+        reason: "Per terrazze e giardini d'inverno, il parquet per esterni è l'unica scelta possibile. Trattamenti specifici per resistere agli agenti atmosferici."
+    },
+    "esterno-basso-economico-classico": {
+        product: "Esterni",
+        reason: "Il parquet per esterni con finitura classica è perfetto per creare continuità tra interno ed esterno mantenendo l'eleganza."
+    },
+    "esterno-basso-economico-rustico": {
+        product: "Esterni",
+        reason: "Per ambienti esterni rustici, il parquet per esterni offre la naturalezza del legno con la resistenza necessaria."
+    },
+    
+    // Default fallback
+    "default": {
+        product: "Prefinito",
+        reason: "Il parquet prefinito è la scelta più versatile e bilanciata. Offre il perfetto equilibrio tra qualità, durata e prezzo per la maggior parte delle esigenze."
+    }
+};
+
+// ===== DOM CONTENT LOADED =====
+document.addEventListener('DOMContentLoaded', function() {
+    initializeApp();
+});
+
+// ===== INITIALIZATION =====
+function initializeApp() {
+    setupMobileMenu();
+    setupHeaderScroll();
+    setupSmoothScrolling();
+    setupLazyLoading();
+    setupLanguageSwitcher();
+    setupWizard();
+    setupLightbox();
+    setupContactForms();
+    setupAnimations();
+    
+    // Initialize with Italian language
+    changeLanguage('it');
+    
+    console.log('ParquetPregio website initialized successfully!');
+}
+
+// ===== MOBILE MENU =====
+function setupMobileMenu() {
+    const menuToggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('nav');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    if (menuToggle && nav) {
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            const isActive = nav.classList.contains('active');
+            menuToggle.innerHTML = isActive ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close menu when clicking on links
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+                nav.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+    }
+}
+
+// ===== HEADER SCROLL EFFECT =====
+function setupHeaderScroll() {
+    const header = document.getElementById('header');
+    
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    }
+}
+
+// ===== SMOOTH SCROLLING =====
+function setupSmoothScrolling() {
+    const navLinks = document.querySelectorAll('a[href^="#"]');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const targetPosition = targetElement.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+// ===== LAZY LOADING =====
+function setupLazyLoading() {
+    const lazyImages = document.querySelectorAll('.high-res-image');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.classList.add('loaded');
+                    observer.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px 0px',
+            threshold: 0.1
+        });
+        
+        lazyImages.forEach(img => {
+            imageObserver.observe(img);
+        });
+    } else {
+        // Fallback for browsers without IntersectionObserver support
+        lazyImages.forEach(img => {
+            img.classList.add('loaded');
+        });
+    }
+}
+
+// ===== LANGUAGE SWITCHER =====
+function setupLanguageSwitcher() {
+    const langButtons = document.querySelectorAll('.language-switcher button');
+    
+    langButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const lang = button.getAttribute('data-lang');
+            changeLanguage(lang);
+        });
+    });
+}
+
+function changeLanguage(lang) {
+    // Update active button
+    document.querySelectorAll('.language-switcher button').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.querySelector(`[data-lang="${lang}"]`).classList.add('active');
+    
+    // Update content
+    const elements = document.querySelectorAll('[data-translate]');
+    elements.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
+    });
+    
+    // Update HTML lang attribute
+    document.documentElement.lang = lang;
+    
+    // Store language preference
+    localStorage.setItem('preferred-language', lang);
+}
+
+// ===== WIZARD FUNCTIONALITY =====
+function setupWizard() {
+    const optionButtons = document.querySelectorAll('.option-btn');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const restartBtn = document.getElementById('restartWizard');
+    const contactBtn = document.getElementById('contactBtn');
+    
+    // Option button handlers
+    optionButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            selectOption(button);
+        });
+    });
+    
+    // Navigation buttons
+    if (nextBtn) {
+        nextBtn.addEventListener('click', nextStep);
+    }
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', prevStep);
+    }
+    
+    if (restartBtn) {
+        restartBtn.addEventListener('click', restartWizard);
+    }
+    
+    if (contactBtn) {
+        contactBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const recommendation = getRecommendation();
+            const message = `Ciao! Sono interessato al parquet ${recommendation.product} consigliato dal vostro wizard. Potreste fornirmi maggiori informazioni e un preventivo?`;
+            const whatsappUrl = `https://wa.me/393331234567?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+    }
+    
+    updateWizardUI();
+}
+
+function selectOption(button) {
+    const step = button.closest('.wizard-step');
+    const stepId = step.id;
+    
+    // Remove previous selection in this step
+    step.querySelectorAll('.option-btn').forEach(btn => {
+        btn.classList.remove('selected');
+    });
+    
+    // Select current option
+    button.classList.add('selected');
+    
+    // Store selection
+    const value = button.getAttribute('data-value');
+    wizardData[stepId] = value;
+    
+    // Enable next button
+    const nextBtn = document.getElementById('nextBtn');
+    if (nextBtn) {
+        nextBtn.disabled = false;
+    }
+    
+    // If this is the last step, show recommendation
+    if (stepId === 'step4') {
+        setTimeout(() => {
+            nextStep();
+        }, 500);
+    }
+}
+
+function nextStep() {
+    if (currentStep < 5) {
+        // Hide current step
+        document.getElementById(`step${currentStep}`).classList.remove('active');
+        
+        // Show next step
+        currentStep++;
+        document.getElementById(`step${currentStep}`).classList.add('active');
+        
+        // Update progress
+        updateProgress();
+        
+        // Update navigation buttons
+        updateWizardUI();
+        
+        // If this is the final step, show recommendation
+        if (currentStep === 5) {
+            showRecommendation();
+        }
+    }
+}
+
+function prevStep() {
+    if (currentStep > 1) {
+        // Hide current step
+        document.getElementById(`step${currentStep}`).classList.remove('active');
+        
+        // Show previous step
+        currentStep--;
+        document.getElementById(`step${currentStep}`).classList.add('active');
+        
+        // Update progress
+        updateProgress();
+        
+        // Update navigation buttons
+        updateWizardUI();
+    }
+}
+
+function updateProgress() {
+    const progressFill = document.getElementById('progressFill');
+    const progressText = document.getElementById('progressText');
+    
+    if (progressFill && progressText) {
+        const progress = (currentStep / 5) * 100;
+        progressFill.style.width = `${progress}%`;
+        progressText.textContent = `${currentStep} / 5`;
+    }
+}
+
+function updateWizardUI() {
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    
+    if (prevBtn) {
+        prevBtn.disabled = currentStep === 1;
+    }
+    
+    if (nextBtn) {
+        const currentStepElement = document.getElementById(`step${currentStep}`);
+        const hasSelection = currentStepElement.querySelector('.option-btn.selected');
+        nextBtn.disabled = !hasSelection || currentStep === 5;
+    }
+}
+
+function showRecommendation() {
+    const recommendation = getRecommendation();
+    const productElement = document.getElementById('recommendedProduct');
+    const reasonElement = document.getElementById('recommendationReason');
+    
+    if (productElement && reasonElement) {
+        productElement.innerHTML = `
+            <h4>${recommendation.product}</h4>
+            <p>${recommendation.reason}</p>
+        `;
+        
+        reasonElement.textContent = recommendation.reason;
+    }
+}
+
+function getRecommendation() {
+    const key = `${wizardData.step1}-${wizardData.step2}-${wizardData.step3}-${wizardData.step4}`;
+    return productRecommendations[key] || productRecommendations.default;
+}
+
+function restartWizard() {
+    currentStep = 1;
+    wizardData = {};
+    
+    // Reset all steps
+    for (let i = 1; i <= 5; i++) {
+        const step = document.getElementById(`step${i}`);
+        if (step) {
+            step.classList.remove('active');
+            if (i === 1) step.classList.add('active');
+            
+            // Clear selections
+            step.querySelectorAll('.option-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+        }
+    }
+    
+    updateProgress();
+    updateWizardUI();
+}
+
+// ===== LIGHTBOX =====
+function setupLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    const zoomButtons = document.querySelectorAll('.zoom-btn');
+    const lightboxPrev = document.querySelector('.lightbox-prev');
+    const lightboxNext = document.querySelector('.lightbox-next');
+    
+    // Collect all images for lightbox
+    lightboxImages = Array.from(zoomButtons).map(btn => btn.getAttribute('data-image'));
+    
+    // Zoom button handlers
+    zoomButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            currentImageIndex = index;
+            showLightbox(lightboxImages[index]);
+        });
+    });
+    
+    // Close lightbox
+    if (lightboxClose) {
+        lightboxClose.addEventListener('click', hideLightbox);
+    }
+    
+    // Close on background click
+    if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                hideLightbox();
+            }
+        });
+    }
+    
+    // Navigation
+    if (lightboxPrev) {
+        lightboxPrev.addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex - 1 + lightboxImages.length) % lightboxImages.length;
+            showLightbox(lightboxImages[currentImageIndex]);
+        });
+    }
+    
+    if (lightboxNext) {
+        lightboxNext.addEventListener('click', () => {
+            currentImageIndex = (currentImageIndex + 1) % lightboxImages.length;
+            showLightbox(lightboxImages[currentImageIndex]);
+        });
+    }
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (lightbox && lightbox.classList.contains('active')) {
+            switch(e.key) {
+                case 'Escape':
+                    hideLightbox();
+                    break;
+                case 'ArrowLeft':
+                    if (lightboxPrev) lightboxPrev.click();
+                    break;
+                case 'ArrowRight':
+                    if (lightboxNext) lightboxNext.click();
+                    break;
+            }
+        }
+    });
+}
+
+function showLightbox(imageSrc) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    
+    if (lightbox && lightboxImage) {
+        lightboxImage.src = imageSrc;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function hideLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    
+    if (lightbox) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+// ===== CONTACT FORMS =====
+function setupContactForms() {
+    // WhatsApp integration
+    const whatsappButtons = document.querySelectorAll('.btn-whatsapp');
+    whatsappButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            // Add tracking or analytics here if needed
+            console.log('WhatsApp contact initiated');
+        });
+    });
+    
+    // Email integration
+    const emailButtons = document.querySelectorAll('.btn-email');
+    emailButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            // Add tracking or analytics here if needed
+            console.log('Email contact initiated');
+        });
+    });
+}
+
+// ===== ANIMATIONS =====
+function setupAnimations() {
+    // Intersection Observer for scroll animations
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        // Observe elements for animation
+        const animateElements = document.querySelectorAll('.product-card, .project-item, .contact-method');
+        animateElements.forEach(el => {
+            observer.observe(el);
+        });
+    }
+}
+
+// ===== PERFORMANCE OPTIMIZATIONS =====
+
+// Preload critical images
+function preloadImages() {
+    const criticalImages = [
+        'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&q=80&w=2070',
+        'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=774'
+    ];
+    
+    criticalImages.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+}
+
+// Initialize preloading
+preloadImages();
+
+// ===== ERROR HANDLING =====
+window.addEventListener('error', (e) => {
+    console.error('JavaScript error:', e.error);
+    // You could send this to an analytics service
+});
+
+// ===== ANALYTICS TRACKING =====
+function trackEvent(category, action, label) {
+    // Google Analytics or other tracking code would go here
+    console.log(`Analytics: ${category} - ${action} - ${label}`);
+}
+
+// Track wizard completions
+function trackWizardCompletion() {
+    trackEvent('Wizard', 'Complete', wizardData.step1 + '-' + wizardData.step4);
+}
+
+// ===== SERVICE WORKER REGISTRATION =====
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+                console.log('SW registered: ', registration);
+            })
+            .catch(registrationError => {
+                console.log('SW registration failed: ', registrationError);
+            });
+    });
+}
+
+// ===== EXPORT FOR TESTING =====
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        getRecommendation,
+        productRecommendations,
+        translations
+    };
+}

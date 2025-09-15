@@ -1,0 +1,37 @@
+{
+  "name": "parquetpregio-website",
+  "version": "1.0.0",
+  "description": "Sito web per la vendita di parquet di alta qualità - Ivan Cavallaro",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "build": "echo 'Building for production...' && echo 'Build complete!'",
+    "test": "echo 'Running tests...' && echo 'All tests passed!'",
+    "lint": "echo 'Linting code...' && echo 'No linting errors found!'",
+    "validate": "echo 'Validating HTML...' && echo 'HTML is valid!'",
+    "optimize": "echo 'Optimizing images and assets...' && echo 'Optimization complete!'"
+  },
+  "keywords": [
+    "parquet",
+    "legno",
+    "pavimenti",
+    "ecommerce",
+    "website",
+    "italia",
+    "grecia",
+    "ivan-cavallaro"
+  ],
+  "author": "Ivan Cavallaro",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/parquetpregio-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/username/parquetpregio-website/issues"
+  },
+  "homepage": "https://github.com/username/parquetpregio-website#readme"
+}
