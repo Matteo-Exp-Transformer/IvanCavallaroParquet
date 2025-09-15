@@ -11,12 +11,13 @@ const translations = {
         hero_subtitle: "Oltre 20 anni di esperienza nella posa e nel restauro di parquet di pregio",
         whatsapp_btn: "WhatsApp",
         email_btn: "Email",
-        wizard_btn: "Trova il tuo parquet",
+        wizard_btn: "Richiedi preventivo",
         about_title: "Chi Siamo",
         about_text1: "Con oltre 20 anni di esperienza nel settore del parquet, Ivan Cavallaro ha costruito una reputazione di eccellenza e affidabilità. Specializzato nella posa e nel restauro di parquet di pregio, lavora con clienti residenziali e commerciali in Italia e in Grecia.",
         about_text2: "La nostra filosofia si basa sulla qualità artigianale, l'attenzione ai dettagli e l'uso di materiali selezionati per garantire risultati duraturi nel tempo.",
         collaborations_title: "Collaborazioni di prestigio",
-        download_cv: "Scarica CV in PDF",
+        view_projects: "Vedi i suoi lavori",
+        request_quote: "Richiedi preventivo",
         projects_title: "Esperienze e collaborazioni",
         project1_name: "Residenza privata - Milano",
         project1_desc: "Pavimentazione in rovere massello con finitura a olio naturale",
@@ -42,30 +43,57 @@ const translations = {
         product_esterni: "Esterni",
         product_esterni_desc: "Legni tropicali e trattamenti specifici per resistere agli agenti atmosferici. Per terrazze, giardini d'inverno e piscine.",
         contact_whatsapp: "Contattaci via WhatsApp",
-        wizard_title: "Trova il parquet perfetto per te",
-        wizard_subtitle: "Rispondi a poche domande e ti consiglieremo la soluzione ideale",
-        step1_title: "Che tipo di ambiente vuoi pavimentare?",
-        option_residenziale: "Residenziale",
-        option_commerciale: "Commerciale",
-        option_esterno: "Esterno",
-        step2_title: "Qual è il livello di traffico dell'ambiente?",
-        option_basso: "Basso (camera da letto)",
-        option_medio: "Medio (soggiorno)",
-        option_alto: "Alto (ufficio/negozio)",
-        step3_title: "Qual è il tuo budget per m²?",
-        option_economico: "Economico (€20-40/m²)",
-        option_medio_prezzo: "Medio (€40-80/m²)",
-        option_premium: "Premium (€80+/m²)",
-        step4_title: "Che stile preferisci?",
-        option_moderno: "Moderno",
-        option_classico: "Classico",
-        option_rustico: "Rustico",
-        step5_title: "La nostra raccomandazione",
-        why_recommended: "Perché questa scelta?",
-        get_quote: "Richiedi preventivo",
-        restart: "Ricomincia",
+        wizard_title: "Richiedi il tuo preventivo personalizzato",
+        wizard_subtitle: "Seleziona il parquet ideale e ricevi un preventivo dettagliato",
+        step1_title: "Seleziona la tipologia di parquet",
+        wood_massello: "Massello",
+        wood_massello_desc: "Legno massiccio tradizionale",
+        wood_prefinito: "Prefinito",
+        wood_prefinito_desc: "Multistrato con strato nobile",
+        wood_laminato: "Laminato",
+        wood_laminato_desc: "Soluzione economica e resistente",
+        wood_artistico: "Artistico",
+        wood_artistico_desc: "Creazioni personalizzate",
+        wood_esterni: "Esterni",
+        wood_esterni_desc: "Per terrazze e giardini",
+        step2_title: "Specifiche tecniche",
+        spec_thickness: "Spessore (mm)",
+        spec_finish: "Finitura",
+        spec_installation: "Tipo di posa",
+        step3_title: "Seleziona la colorazione",
+        color_chiaro: "Chiaro",
+        color_medio: "Medio",
+        color_scuro: "Scuro",
+        color_naturale: "Naturale",
+        color_bianco: "Bianco",
+        color_grigio: "Grigio",
+        step4_title: "Quantità e dimensioni",
+        quantity_sqm: "Superficie in m²",
+        quantity_rooms: "Numero di stanze",
+        quantity_extra: "Spese extra (opzionale)",
+        quantity_extra_placeholder: "Sottoscala, nicchie, dislivelli...",
+        step5_title: "Dettagli di consegna",
+        delivery_date: "Data ideale di consegna",
+        delivery_address: "Indirizzo di consegna",
+        consultation_need: "Ho bisogno di consulenza tecnica",
+        consultation_info: "Ivan Cavallaro fornirà supporto tecnico per la scelta e l'installazione",
+        step6_title: "I tuoi contatti e riepilogo",
+        contact_name: "Nome e Cognome *",
+        contact_method: "Metodo di contatto preferito",
+        contact_email: "Email",
+        contact_whatsapp_method: "WhatsApp",
+        contact_email_address: "Indirizzo Email *",
+        contact_phone: "Numero di telefono *",
+        quote_summary: "Riepilogo richiesta",
+        consultation_included: "Consulenza tecnica inclusa",
+        submit_quote: "Invia richiesta",
         previous: "Precedente",
         next: "Successivo",
+        close: "Chiudi",
+        select_this_wood: "Seleziona questo parquet",
+        view_full_resolution: "Visualizza risoluzione completa",
+        technical_specs: "Specifiche tecniche",
+        request_quote_from_image: "Richiedi preventivo per questo parquet",
         contact_title: "Parliamo del tuo parquet",
         contact_email_title: "Email",
         contact_email_desc: "Scrivici per un preventivo personalizzato",
@@ -83,6 +111,112 @@ const translations = {
         footer_contact: "Contatti",
         footer_languages_title: "Lingue",
         footer_rights: "Tutti i diritti riservati."
+    },
+    en: {
+        hero_title: "Quality and experience in parquet in Italy and Greece",
+        hero_subtitle: "Over 20 years of experience in laying and restoring premium parquet",
+        whatsapp_btn: "WhatsApp",
+        email_btn: "Email",
+        wizard_btn: "Request quote",
+        about_title: "About Us",
+        about_text1: "With over 20 years of experience in the parquet sector, Ivan Cavallaro has built a reputation for excellence and reliability. Specialized in laying and restoring premium parquet, he works with residential and commercial clients in Italy and Greece.",
+        about_text2: "Our philosophy is based on artisanal quality, attention to detail and the use of selected materials to ensure lasting results over time.",
+        collaborations_title: "Prestigious collaborations",
+        view_projects: "View his work",
+        request_quote: "Request quote",
+        projects_title: "Experiences and collaborations",
+        project1_name: "Private residence - Milan",
+        project1_desc: "Oak solid wood flooring with natural oil finish",
+        project2_name: "Luxury hotel - Athens",
+        project2_desc: "Prefinished parquet for 50 rooms with contemporary design",
+        project3_name: "Villa on Lake Como",
+        project3_desc: "Restoration of historic parquet with artistic inlaid elements",
+        project4_name: "Apartment - Rome",
+        project4_desc: "High-resistance laminate parquet installation for family with children",
+        project5_name: "Terrace - Mykonos Island",
+        project5_desc: "Outdoor parquet in teak with anti-slip treatment",
+        project6_name: "Showroom - Turin",
+        project6_desc: "Continuous flooring in American walnut with matte finish",
+        products_title: "Our parquet types",
+        product_massello: "Solid",
+        product_massello_desc: "Traditional solid wood parquet, thickness over 10mm. Unlimited duration with possibility of multiple sanding.",
+        product_prefinito: "Prefinished",
+        product_prefinito_desc: "Multilayer floor with noble wood top layer. Easy to lay, stable and resistant to climate variations.",
+        product_laminato: "Laminate",
+        product_laminato_desc: "Economic solution with wood effect, resistant to scratches and impacts. Ideal for high-traffic environments and families with children.",
+        product_artistico: "Artistic",
+        product_artistico_desc: "Custom creations with personalized designs, inlays and geometric compositions. For prestigious interiors and exclusive design.",
+        product_esterni: "Outdoor",
+        product_esterni_desc: "Tropical woods and specific treatments to resist atmospheric agents. For terraces, winter gardens and pools.",
+        contact_whatsapp: "Contact us via WhatsApp",
+        wizard_title: "Request your personalized quote",
+        wizard_subtitle: "Select the ideal parquet and receive a detailed quote",
+        step1_title: "Select parquet type",
+        wood_massello: "Solid",
+        wood_massello_desc: "Traditional solid wood",
+        wood_prefinito: "Prefinished",
+        wood_prefinito_desc: "Multilayer with noble layer",
+        wood_laminato: "Laminate",
+        wood_laminato_desc: "Economic and resistant solution",
+        wood_artistico: "Artistic",
+        wood_artistico_desc: "Custom creations",
+        wood_esterni: "Outdoor",
+        wood_esterni_desc: "For terraces and gardens",
+        step2_title: "Technical specifications",
+        spec_thickness: "Thickness (mm)",
+        spec_finish: "Finish",
+        spec_installation: "Installation type",
+        step3_title: "Select color",
+        color_chiaro: "Light",
+        color_medio: "Medium",
+        color_scuro: "Dark",
+        color_naturale: "Natural",
+        color_bianco: "White",
+        color_grigio: "Gray",
+        step4_title: "Quantity and dimensions",
+        quantity_sqm: "Area in m²",
+        quantity_rooms: "Number of rooms",
+        quantity_extra: "Extra details (optional)",
+        quantity_extra_placeholder: "Understairs, niches, level differences...",
+        step5_title: "Delivery details",
+        delivery_date: "Preferred delivery date",
+        delivery_address: "Delivery address",
+        consultation_need: "I need technical consultation",
+        consultation_info: "Ivan Cavallaro will provide technical support for selection and installation",
+        step6_title: "Your contacts and summary",
+        contact_name: "Name and Surname *",
+        contact_method: "Preferred contact method",
+        contact_email: "Email",
+        contact_whatsapp_method: "WhatsApp",
+        contact_email_address: "Email Address *",
+        contact_phone: "Phone Number *",
+        quote_summary: "Request summary",
+        consultation_included: "Technical consultation included",
+        submit_quote: "Send request",
+        previous: "Previous",
+        next: "Next",
+        close: "Close",
+        select_this_wood: "Select this parquet",
+        view_full_resolution: "View full resolution",
+        technical_specs: "Technical specifications",
+        request_quote_from_image: "Request quote for this parquet",
+        contact_title: "Let's talk about your parquet",
+        contact_email_title: "Email",
+        contact_email_desc: "Write us for a personalized quote",
+        contact_whatsapp_title: "WhatsApp",
+        contact_whatsapp_desc: "Contact us directly for immediate consultation",
+        contact_social_title: "Social",
+        contact_social_desc: "Follow us to see our latest work",
+        footer_desc: "Quality and experience in parquet in Italy and Greece",
+        footer_links_title: "Quick links",
+        footer_home: "Home",
+        footer_about: "About Us",
+        footer_projects: "References",
+        footer_products: "Products",
+        footer_wizard: "Wizard",
+        footer_contact: "Contact",
+        footer_languages_title: "Languages",
+        footer_rights: "All rights reserved."
     },
     el: {
         hero_title: "Ποιότητα και εμπειρία στο παρκέ στην Ιταλία και την Ελλάδα",
@@ -472,18 +606,37 @@ function changeLanguage(lang) {
 
 // ===== WIZARD FUNCTIONALITY =====
 function setupWizard() {
-    const optionButtons = document.querySelectorAll('.option-btn');
+    const woodTypeCards = document.querySelectorAll('.wood-type-card');
+    const colorOptions = document.querySelectorAll('.color-option');
     const nextBtn = document.getElementById('nextBtn');
     const prevBtn = document.getElementById('prevBtn');
-    const restartBtn = document.getElementById('restartWizard');
-    const contactBtn = document.getElementById('contactBtn');
+    const submitBtn = document.getElementById('submitQuote');
+    const contactMethodRadios = document.querySelectorAll('input[name="contactMethod"]');
+    const technicalConsultation = document.getElementById('technicalConsultation');
     
-    // Option button handlers
-    optionButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            selectOption(button);
+    // Wood type selection
+    woodTypeCards.forEach(card => {
+        card.addEventListener('click', () => {
+            selectWoodType(card);
         });
     });
+    
+    // Color selection
+    colorOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            selectColor(option);
+        });
+    });
+    
+    // Contact method toggle
+    contactMethodRadios.forEach(radio => {
+        radio.addEventListener('change', toggleContactMethod);
+    });
+    
+    // Technical consultation toggle
+    if (technicalConsultation) {
+        technicalConsultation.addEventListener('change', updateQuoteSummary);
+    }
     
     // Navigation buttons
     if (nextBtn) {
@@ -494,21 +647,162 @@ function setupWizard() {
         prevBtn.addEventListener('click', prevStep);
     }
     
-    if (restartBtn) {
-        restartBtn.addEventListener('click', restartWizard);
+    if (submitBtn) {
+        submitBtn.addEventListener('click', submitQuote);
     }
     
-    if (contactBtn) {
-        contactBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const recommendation = getRecommendation();
-            const message = `Ciao! Sono interessato al parquet ${recommendation.product} consigliato dal vostro wizard. Potreste fornirmi maggiori informazioni e un preventivo?`;
-            const whatsappUrl = `https://wa.me/393331234567?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-        });
-    }
+    // Form validation and summary updates
+    const formInputs = document.querySelectorAll('.quantity-input, .date-input, .address-input, .contact-input');
+    formInputs.forEach(input => {
+        input.addEventListener('input', updateQuoteSummary);
+    });
     
     updateWizardUI();
+}
+
+function selectWoodType(card) {
+    // Remove previous selection
+    document.querySelectorAll('.wood-type-card').forEach(c => {
+        c.classList.remove('selected');
+    });
+    
+    // Select current card
+    card.classList.add('selected');
+    
+    // Store selection
+    wizardData.woodType = card.getAttribute('data-type');
+    
+    // Enable next button
+    enableNextButton();
+}
+
+function selectColor(option) {
+    // Remove previous selection
+    document.querySelectorAll('.color-option').forEach(o => {
+        o.classList.remove('selected');
+    });
+    
+    // Select current option
+    option.classList.add('selected');
+    
+    // Store selection
+    wizardData.color = option.getAttribute('data-color');
+    
+    // Enable next button
+    enableNextButton();
+}
+
+function toggleContactMethod() {
+    const emailGroup = document.getElementById('emailGroup');
+    const phoneGroup = document.getElementById('phoneGroup');
+    const selectedMethod = document.querySelector('input[name="contactMethod"]:checked').value;
+    
+    if (selectedMethod === 'email') {
+        emailGroup.style.display = 'block';
+        phoneGroup.style.display = 'none';
+        document.getElementById('contactEmail').required = true;
+        document.getElementById('contactPhone').required = false;
+    } else {
+        emailGroup.style.display = 'none';
+        phoneGroup.style.display = 'block';
+        document.getElementById('contactEmail').required = false;
+        document.getElementById('contactPhone').required = true;
+    }
+}
+
+function updateQuoteSummary() {
+    const summaryContainer = document.getElementById('quoteSummary');
+    const consultationBadge = document.getElementById('consultationBadge');
+    
+    if (!summaryContainer) return;
+    
+    // Clear previous summary
+    summaryContainer.innerHTML = '';
+    
+    // Add summary items
+    if (wizardData.woodType) {
+        addSummaryItem('Tipologia', getWoodTypeName(wizardData.woodType));
+    }
+    
+    if (wizardData.color) {
+        addSummaryItem('Colorazione', getColorName(wizardData.color));
+    }
+    
+    const thickness = document.getElementById('thickness');
+    if (thickness) {
+        addSummaryItem('Spessore', thickness.value + 'mm');
+    }
+    
+    const finish = document.getElementById('finish');
+    if (finish) {
+        addSummaryItem('Finitura', finish.value);
+    }
+    
+    const quantity = document.getElementById('quantity');
+    if (quantity && quantity.value) {
+        addSummaryItem('Superficie', quantity.value + ' m²');
+    }
+    
+    const rooms = document.getElementById('rooms');
+    if (rooms && rooms.value) {
+        addSummaryItem('Stanze', rooms.value);
+    }
+    
+    const deliveryDate = document.getElementById('deliveryDate');
+    if (deliveryDate && deliveryDate.value) {
+        addSummaryItem('Consegna', deliveryDate.value);
+    }
+    
+    // Show consultation badge if needed
+    const consultation = document.getElementById('technicalConsultation');
+    if (consultation && consultation.checked && consultationBadge) {
+        consultationBadge.style.display = 'flex';
+    } else if (consultationBadge) {
+        consultationBadge.style.display = 'none';
+    }
+}
+
+function addSummaryItem(label, value) {
+    const summaryContainer = document.getElementById('quoteSummary');
+    if (!summaryContainer) return;
+    
+    const item = document.createElement('div');
+    item.className = 'summary-item';
+    item.innerHTML = `
+        <span class="summary-label">${label}</span>
+        <span class="summary-value">${value}</span>
+    `;
+    summaryContainer.appendChild(item);
+}
+
+function getWoodTypeName(type) {
+    const names = {
+        'massello': 'Massello',
+        'prefinito': 'Prefinito',
+        'laminato': 'Laminato',
+        'artistico': 'Artistico',
+        'esterni': 'Esterni'
+    };
+    return names[type] || type;
+}
+
+function getColorName(color) {
+    const names = {
+        'chiaro': 'Chiaro',
+        'medio': 'Medio',
+        'scuro': 'Scuro',
+        'naturale': 'Naturale',
+        'bianco': 'Bianco',
+        'grigio': 'Grigio'
+    };
+    return names[color] || color;
+}
+
+function enableNextButton() {
+    const nextBtn = document.getElementById('nextBtn');
+    if (nextBtn) {
+        nextBtn.disabled = false;
+    }
 }
 
 function selectOption(button) {
@@ -542,7 +836,7 @@ function selectOption(button) {
 }
 
 function nextStep() {
-    if (currentStep < 5) {
+    if (currentStep < 6) {
         // Hide current step
         document.getElementById(`step${currentStep}`).classList.remove('active');
         
@@ -556,9 +850,9 @@ function nextStep() {
         // Update navigation buttons
         updateWizardUI();
         
-        // If this is the final step, show recommendation
-        if (currentStep === 5) {
-            showRecommendation();
+        // If this is the final step, update summary
+        if (currentStep === 6) {
+            updateQuoteSummary();
         }
     }
 }
@@ -585,24 +879,52 @@ function updateProgress() {
     const progressText = document.getElementById('progressText');
     
     if (progressFill && progressText) {
-        const progress = (currentStep / 5) * 100;
+        const progress = (currentStep / 6) * 100;
         progressFill.style.width = `${progress}%`;
-        progressText.textContent = `${currentStep} / 5`;
+        progressText.textContent = `${currentStep} / 6`;
     }
 }
 
 function updateWizardUI() {
     const nextBtn = document.getElementById('nextBtn');
     const prevBtn = document.getElementById('prevBtn');
+    const submitBtn = document.getElementById('submitQuote');
     
     if (prevBtn) {
         prevBtn.disabled = currentStep === 1;
     }
     
     if (nextBtn) {
-        const currentStepElement = document.getElementById(`step${currentStep}`);
-        const hasSelection = currentStepElement.querySelector('.option-btn.selected');
-        nextBtn.disabled = !hasSelection || currentStep === 5;
+        nextBtn.style.display = currentStep === 6 ? 'none' : 'inline-flex';
+    }
+    
+    if (submitBtn) {
+        submitBtn.style.display = currentStep === 6 ? 'inline-flex' : 'none';
+    }
+    
+    // Enable next button based on current step requirements
+    if (nextBtn && currentStep < 6) {
+        let canProceed = false;
+        
+        switch(currentStep) {
+            case 1:
+                canProceed = wizardData.woodType;
+                break;
+            case 2:
+                canProceed = true; // Specs are optional
+                break;
+            case 3:
+                canProceed = wizardData.color;
+                break;
+            case 4:
+                canProceed = document.getElementById('quantity')?.value;
+                break;
+            case 5:
+                canProceed = document.getElementById('deliveryDate')?.value;
+                break;
+        }
+        
+        nextBtn.disabled = !canProceed;
     }
 }
 
@@ -626,23 +948,152 @@ function getRecommendation() {
     return productRecommendations[key] || productRecommendations.default;
 }
 
+function submitQuote() {
+    // Validate required fields
+    const name = document.getElementById('contactName').value;
+    const contactMethod = document.querySelector('input[name="contactMethod"]:checked').value;
+    const email = document.getElementById('contactEmail').value;
+    const phone = document.getElementById('contactPhone').value;
+    
+    if (!name || !wizardData.woodType) {
+        alert('Per favore compila tutti i campi obbligatori');
+        return;
+    }
+    
+    if (contactMethod === 'email' && !email) {
+        alert('Per favore inserisci un indirizzo email valido');
+        return;
+    }
+    
+    if (contactMethod === 'whatsapp' && !phone) {
+        alert('Per favore inserisci un numero di telefono valido');
+        return;
+    }
+    
+    // Collect all form data
+    const formData = {
+        name: name,
+        contactMethod: contactMethod,
+        contact: contactMethod === 'email' ? email : phone,
+        woodType: wizardData.woodType,
+        color: wizardData.color,
+        thickness: document.getElementById('thickness').value,
+        finish: document.getElementById('finish').value,
+        installation: document.getElementById('installation').value,
+        quantity: document.getElementById('quantity').value,
+        rooms: document.getElementById('rooms').value,
+        extraInfo: document.getElementById('extraInfo').value,
+        deliveryDate: document.getElementById('deliveryDate').value,
+        deliveryAddress: document.getElementById('deliveryAddress').value,
+        technicalConsultation: document.getElementById('technicalConsultation').checked
+    };
+    
+    // Generate email content
+    const emailSubject = 'Richiesta Preventivo Parquet - ' + formData.name;
+    const emailBody = generateEmailBody(formData);
+    
+    // Send email
+    const emailUrl = `mailto:0Cavuz0@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    window.location.href = emailUrl;
+    
+    // Also prepare WhatsApp message
+    const whatsappMessage = generateWhatsAppMessage(formData);
+    const whatsappUrl = `https://wa.me/393331234567?text=${encodeURIComponent(whatsappMessage)}`;
+    
+    // Show success message with options
+    showQuoteSuccess(emailUrl, whatsappUrl);
+}
+
+function generateEmailBody(data) {
+    return `Nuova richiesta preventivo parquet
+
+Dati Cliente:
+- Nome: ${data.name}
+- Contatto: ${data.contact} (${data.contactMethod})
+
+Dettagli Parquet:
+- Tipologia: ${getWoodTypeName(data.woodType)}
+- Colorazione: ${getColorName(data.color)}
+- Spessore: ${data.thickness}mm
+- Finitura: ${data.finish}
+- Tipo di posa: ${data.installation}
+
+Quantità:
+- Superficie: ${data.quantity} m²
+- Numero stanze: ${data.rooms}
+- Note aggiuntive: ${data.extraInfo || 'Nessuna'}
+
+Consegna:
+- Data preferita: ${data.deliveryDate}
+- Indirizzo: ${data.deliveryAddress}
+
+Consulenza tecnica richiesta: ${data.technicalConsultation ? 'Sì' : 'No'}
+
+Richiesta inviata il: ${new Date().toLocaleString('it-IT')}`;
+}
+
+function generateWhatsAppMessage(data) {
+    return `Ciao! Sono ${data.name} e vorrei richiedere un preventivo per parquet.
+
+Tipologia: ${getWoodTypeName(data.woodType)}
+Colorazione: ${getColorName(data.color)}
+Superficie: ${data.quantity} m²
+Data consegna: ${data.deliveryDate}
+${data.technicalConsultation ? 'Consulenza tecnica richiesta' : ''}
+
+Potreste fornirmi maggiori informazioni e un preventivo dettagliato?
+
+Grazie!`;
+}
+
+function showQuoteSuccess(emailUrl, whatsappUrl) {
+    const message = `
+Richiesta inviata con successo!
+
+Vuoi anche inviare un messaggio WhatsApp per un contatto più rapido?
+
+[Email] [WhatsApp]
+    `;
+    
+    if (confirm('Richiesta inviata! Vuoi anche inviare un messaggio WhatsApp?')) {
+        window.open(whatsappUrl, '_blank');
+    }
+}
+
 function restartWizard() {
     currentStep = 1;
     wizardData = {};
     
     // Reset all steps
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 6; i++) {
         const step = document.getElementById(`step${i}`);
         if (step) {
             step.classList.remove('active');
             if (i === 1) step.classList.add('active');
             
             // Clear selections
-            step.querySelectorAll('.option-btn').forEach(btn => {
-                btn.classList.remove('selected');
+            step.querySelectorAll('.wood-type-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            step.querySelectorAll('.color-option').forEach(option => {
+                option.classList.remove('selected');
             });
         }
     }
+    
+    // Clear form inputs
+    const formInputs = document.querySelectorAll('input, textarea, select');
+    formInputs.forEach(input => {
+        if (input.type === 'checkbox' || input.type === 'radio') {
+            input.checked = false;
+        } else {
+            input.value = '';
+        }
+    });
+    
+    // Reset contact method to email
+    document.querySelector('input[name="contactMethod"][value="email"]').checked = true;
+    toggleContactMethod();
     
     updateProgress();
     updateWizardUI();
@@ -654,17 +1105,31 @@ function setupLightbox() {
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxClose = document.querySelector('.lightbox-close');
     const zoomButtons = document.querySelectorAll('.zoom-btn');
+    const zoomWoodButtons = document.querySelectorAll('.zoom-wood-btn');
     const lightboxPrev = document.querySelector('.lightbox-prev');
     const lightboxNext = document.querySelector('.lightbox-next');
+    const requestQuoteFromLightbox = document.getElementById('requestQuoteFromLightbox');
     
     // Collect all images for lightbox
     lightboxImages = Array.from(zoomButtons).map(btn => btn.getAttribute('data-image'));
     
-    // Zoom button handlers
+    // Zoom button handlers for projects
     zoomButtons.forEach((button, index) => {
         button.addEventListener('click', () => {
             currentImageIndex = index;
-            showLightbox(lightboxImages[index]);
+            const projectItem = button.closest('.project-item');
+            const projectName = projectItem.querySelector('.project-name').textContent;
+            const projectDesc = projectItem.querySelector('.project-description').textContent;
+            showLightbox(lightboxImages[index], projectName, projectDesc);
+        });
+    });
+    
+    // Zoom button handlers for wood types
+    zoomWoodButtons.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const woodType = button.getAttribute('data-wood');
+            showWoodModal(woodType);
         });
     });
     
@@ -679,6 +1144,14 @@ function setupLightbox() {
             if (e.target === lightbox) {
                 hideLightbox();
             }
+        });
+    }
+    
+    // Request quote from lightbox
+    if (requestQuoteFromLightbox) {
+        requestQuoteFromLightbox.addEventListener('click', () => {
+            hideLightbox();
+            document.querySelector('a[href="#wizard"]').click();
         });
     }
     
@@ -715,12 +1188,23 @@ function setupLightbox() {
     });
 }
 
-function showLightbox(imageSrc) {
+function showLightbox(imageSrc, title = '', description = '') {
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxDescription = document.getElementById('lightboxDescription');
     
     if (lightbox && lightboxImage) {
         lightboxImage.src = imageSrc;
+        
+        if (lightboxTitle) {
+            lightboxTitle.textContent = title;
+        }
+        
+        if (lightboxDescription) {
+            lightboxDescription.textContent = description;
+        }
+        
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
@@ -733,6 +1217,172 @@ function hideLightbox() {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
     }
+}
+
+// ===== WOOD MODAL =====
+function showWoodModal(woodType) {
+    const woodModal = document.getElementById('woodModal');
+    const woodModalTitle = document.getElementById('woodModalTitle');
+    const woodMainImage = document.getElementById('woodMainImage');
+    const woodSpecsList = document.getElementById('woodSpecsList');
+    const woodThumbnails = document.getElementById('woodThumbnails');
+    const selectWoodTypeBtn = document.getElementById('selectWoodType');
+    
+    if (!woodModal) return;
+    
+    // Set title
+    if (woodModalTitle) {
+        woodModalTitle.textContent = getWoodTypeName(woodType);
+    }
+    
+    // Set main image (placeholder for now)
+    if (woodMainImage) {
+        woodMainImage.src = getWoodImage(woodType);
+    }
+    
+    // Set specifications
+    if (woodSpecsList) {
+        woodSpecsList.innerHTML = getWoodSpecs(woodType);
+    }
+    
+    // Set thumbnails (placeholder for now)
+    if (woodThumbnails) {
+        woodThumbnails.innerHTML = getWoodThumbnails(woodType);
+    }
+    
+    // Set select button
+    if (selectWoodTypeBtn) {
+        selectWoodTypeBtn.onclick = () => {
+            hideWoodModal();
+            // Pre-select this wood type in wizard
+            const woodCard = document.querySelector(`[data-type="${woodType}"]`);
+            if (woodCard) {
+                selectWoodType(woodCard);
+            }
+            // Scroll to wizard
+            document.querySelector('a[href="#wizard"]').click();
+        };
+    }
+    
+    // Show modal
+    woodModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    
+    // Setup modal close handlers
+    setupWoodModalHandlers();
+}
+
+function hideWoodModal() {
+    const woodModal = document.getElementById('woodModal');
+    
+    if (woodModal) {
+        woodModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+function setupWoodModalHandlers() {
+    const woodModal = document.getElementById('woodModal');
+    const woodModalClose = document.querySelector('.wood-modal-close');
+    const closeWoodModal = document.getElementById('closeWoodModal');
+    
+    if (woodModalClose) {
+        woodModalClose.onclick = hideWoodModal;
+    }
+    
+    if (closeWoodModal) {
+        closeWoodModal.onclick = hideWoodModal;
+    }
+    
+    if (woodModal) {
+        woodModal.onclick = (e) => {
+            if (e.target === woodModal) {
+                hideWoodModal();
+            }
+        };
+    }
+}
+
+function getWoodImage(woodType) {
+    const images = {
+        'massello': 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=800',
+        'prefinito': 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&q=80&w=800',
+        'laminato': 'https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?auto=format&fit=crop&q=80&w=800',
+        'artistico': 'https://images.unsplash.com/photo-1571624436279-b272aff752b5?auto=format&fit=crop&q=80&w=800',
+        'esterni': 'https://images.unsplash.com/photo-1616137422495-1e9e46e2aa77?auto=format&fit=crop&q=80&w=800'
+    };
+    return images[woodType] || images['massello'];
+}
+
+function getWoodSpecs(woodType) {
+    const specs = {
+        'massello': [
+            { label: 'Spessore', value: '15-22mm' },
+            { label: 'Durezza', value: 'Alta' },
+            { label: 'Durata', value: 'Illimitata' },
+            { label: 'Manutenzione', value: 'Carteggiatura' },
+            { label: 'Resistenza', value: 'Eccellente' }
+        ],
+        'prefinito': [
+            { label: 'Spessore', value: '10-15mm' },
+            { label: 'Stabilità', value: 'Alta' },
+            { label: 'Durata', value: '20+ anni' },
+            { label: 'Manutenzione', value: 'Minima' },
+            { label: 'Resistenza', value: 'Buona' }
+        ],
+        'laminato': [
+            { label: 'Spessore', value: '8-12mm' },
+            { label: 'Durezza', value: 'AC4-AC5' },
+            { label: 'Durata', value: '10-15 anni' },
+            { label: 'Manutenzione', value: 'Facile' },
+            { label: 'Resistenza', value: 'Graffi/Urti' }
+        ],
+        'artistico': [
+            { label: 'Spessore', value: '12-20mm' },
+            { label: 'Personalizzazione', value: '100%' },
+            { label: 'Durata', value: 'Illimitata' },
+            { label: 'Manutenzione', value: 'Specializzata' },
+            { label: 'Unicità', value: 'Assoluta' }
+        ],
+        'esterni': [
+            { label: 'Spessore', value: '20-25mm' },
+            { label: 'Trattamento', value: 'Antiatmosferico' },
+            { label: 'Durata', value: '15-25 anni' },
+            { label: 'Manutenzione', value: 'Periodica' },
+            { label: 'Resistenza', value: 'UV/Acqua' }
+        ]
+    };
+    
+    return specs[woodType].map(spec => `
+        <div class="spec-item">
+            <span class="spec-label">${spec.label}</span>
+            <span class="spec-value">${spec.value}</span>
+        </div>
+    `).join('');
+}
+
+function getWoodThumbnails(woodType) {
+    // Placeholder thumbnails - in real implementation, these would be actual product images
+    const thumbnails = Array.from({length: 4}, (_, i) => `
+        <div class="wood-thumbnail ${i === 0 ? 'active' : ''}" onclick="changeWoodImage('${woodType}', ${i})">
+            <img src="${getWoodImage(woodType)}?v=${i}" alt="${getWoodTypeName(woodType)} ${i+1}">
+        </div>
+    `).join('');
+    
+    return thumbnails;
+}
+
+function changeWoodImage(woodType, index) {
+    const woodMainImage = document.getElementById('woodMainImage');
+    const thumbnails = document.querySelectorAll('.wood-thumbnail');
+    
+    if (woodMainImage) {
+        woodMainImage.src = `${getWoodImage(woodType)}?v=${index}`;
+    }
+    
+    thumbnails.forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === index);
+    });
 }
 
 // ===== CONTACT FORMS =====
@@ -835,3 +1485,4 @@ if (typeof module !== 'undefined' && module.exports) {
         translations
     };
 }
+
